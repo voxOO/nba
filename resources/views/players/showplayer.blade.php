@@ -1,8 +1,9 @@
 @extends('layouts.master')
 
-@section('title' , 'List of teams')
+@section('title' , 'Show player')
 
 @section('content')
+   
     <div>
         <h3>{{ $player->first_name.' '.$player->last_name}}</h3>
         <p>{{ $player->email }}</p>
