@@ -15,9 +15,19 @@ class CreatePlayersTable extends Migration
     {
         Schema::create('players', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('email');
+
+            $table->bigInteger('team_id')->unsigned();
+            $table->foreign('team_id')
+                  ->references('id')
+                  ->on('teams')
+                  ->onDelete('cascade');
+
             $table->timestamps();
         });
-    }
+    }   // id, first_name, last_name, email, team_id (ovo je strani ključ)
 
     /**
      * Reverse the migrations.
